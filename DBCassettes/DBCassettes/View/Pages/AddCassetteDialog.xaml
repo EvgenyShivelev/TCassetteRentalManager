@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="DBCassettes.View.Pages.AddCassetteDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Enm="clr-namespace:ENUM"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" d:DesignWidth="350" Height="350">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enm:Enum+CasseteCondition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.RowSpan="2">
+            <Border Margin="10,0,0,58" BorderBrush="Black" BorderThickness="1">
+                <Border.Background>
+                    <ImageBrush  ImageSource="{Binding PreviewImage}"/>
+                </Border.Background>
+            </Border>
+        </DockPanel>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,-0.333,0">
+            <StackPanel x:Name="Фильм" Orientation="Horizontal" Margin="10">
+                <Label Content="Фильм" Width="70"></Label>
+                <ComboBox ItemsSource="{Binding Path=Films}" SelectedItem="{Binding Path=Film}" DisplayMemberPath="FilmName" Width="101" />
+                <Button Command="{Binding Path=RefreshFilmsCollectionCommand}" BorderThickness="0" Background="White" Margin="5,0" Width="25">
+                    <Image Source="/DBCassettes;component/Assets/view-refresh.png"></Image>
+                </Button>
+            </StackPanel>
+            <StackPanel x:Name="Состояния" Orientation="Horizontal" Margin="10">
+                <Label Content="Состояние" Width="70"></Label>
+                <ComboBox ItemsSource="{Binding Source={StaticResource dataFromEnum}}" SelectedItem="{Binding Path=Condition}" Width="130" />
+            </StackPanel>
+            <StackPanel x:Name="Копия" Orientation="Horizontal" Margin="10">
+                <Label Content="Копий" Width="70"></Label>
+                <TextBox Width="130"></TextBox>
+            </StackPanel>
+            <StackPanel x:Name="Цена" Orientation="Horizontal" Margin="10">
+                <Label Content="Цена" Width="70"></Label>
+                <TextBox Width="130"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <DockPanel Grid.ColumnSpan="3" Grid.Row="2" Margin="0,0,0.5,0">
+            <DockPanel DockPanel.Dock="Left" Width="175">
+                <Button DockPanel.Dock="Top" Command="{Binding AddCassetteToDataBaseCommand}" Content="Добавить" Background="LightGreen"  Width="100" Height="30" Margin="0,26,0,27"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Left" Width="175">
+                <Button  Command="{Binding Path=CloseDialogWindowCommand}" Content="Отмена" Background="Red" Width="100" Height="30"></Button>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>
