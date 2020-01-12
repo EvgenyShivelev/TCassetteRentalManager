@@ -1,6 +1,6 @@
 # Rental cassette manager
-A simple *rental cassettes manager* project with simple interface. It allows watch all cassettes in specific branch.
-5 days were given for this task. A database and a simple application for this database was designed.
+A simple *rental cassettes manager* project with interface. It allows watch all cassettes in specific branch.
+5 days were gave for this task. A database and a application for this project were designed.
 
 **Progress**
 - [x]  Impelemet functions for adding all important components of the cassette;
