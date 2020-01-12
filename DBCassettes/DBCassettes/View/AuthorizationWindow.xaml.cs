@@ -26,28 +26,6 @@ namespace DBCassettes
     {
         public MainWindow()
         {
-            using (var EDBContext = new EDBContext())
-            {
-                //Person person = new Person { FirstName = "HI" };
-                //EDBContext.Persons.Add(person);
-                //EDBContext.Logins.Add(new Login { PersonLogin = "XOR", PersonPassword = "123", _person = person });
-                //EDBContext.Genres.Add(new Genre { GenreName = "ХОРРА2Р" });
-                //EDBContext.Genres.Add(new Genre { GenreName = "ХОРРА54Р" });
-                //EDBContext.SaveChanges();
-                //EDBContext.Films.Add(new Film { FilmName = "ХРЯК", FilmGenreID = 1, FilmImage = API.BMI.LoadImageToDataBase(API.BMI.LoadImage(new Uri(@"C:\Users\MellChaos\Documents\ICONS\7.jpg"))) });
-                //EDBContext.Films.Add(new Film { FilmName = "лалита", FilmGenreID = 2, FilmImage = API.BMI.LoadImageToDataBase(API.BMI.LoadImage(new Uri(@"C:\Users\MellChaos\Documents\ICONS\2.jpg"))) });
-                //EDBContext.Films.Add(new Film { FilmName = "хрок", FilmGenreID = 1, FilmImage = API.BMI.LoadImageToDataBase(API.BMI.LoadImage(new Uri(@"C:\Users\MellChaos\Documents\ICONS\5.jpg"))) });
-                //EDBContext.SaveChanges();
-                //for (int i = 0; i < 100000; i++)
-                //{
-                //    if ((i % 250) == 0)
-                //        EDBContext.SaveChanges();
-                //    EDBContext.Cassettes.Add(new Cassette { CassetteCondition = ENUM.Enum.CasseteCondition.NEW, FilmOnCassetteID = 1 });
-                //    EDBContext.Cassettes.Add(new Cassette { CassetteCondition = ENUM.Enum.CasseteCondition.NEW, FilmOnCassetteID = 2 });
-                //    EDBContext.Cassettes.Add(new Cassette { CassetteCondition = ENUM.Enum.CasseteCondition.NEW, FilmOnCassetteID = 3 });
-
-                //}
-            }
             DataContext = new AuthorizationModelView(this);
 
         }
